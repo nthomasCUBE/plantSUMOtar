@@ -22,13 +22,12 @@ body, label, input, button, select {
 	font-family: 'Arial';
 }"))
   ), 
-  theme = shinytheme("united"),  useShinyjs(), useShinyalert(), 
+  theme = shinytheme("sandstone"),  useShinyjs(), useShinyalert(), 
 	sidebarLayout(
 		sidebarPanel(
 		tabsetPanel(id = "tabset",
-		tabPanel("TraitCorr - finding significantly correlating traits",
-			selectInput("sumo", "SUMO protein:", c("SUMO protein"="sumo_protein","SUMO E1"="sumo_e1","SUMO E2"="sumo_e2","SUMO E3"="sumo_e3","SUMO Protease"="sumo_protease")),
-			selectInput("species", "Species:", c("Arabidopsis thaliana"="arabidopsis","Triticum aestivum"="taestivum")),
+		tabPanel("plantSUMOtar - assessing targets of SUMOylation pathway",
+			fileInput("file1", "Choose Targets", multiple = TRUE, accept = c("text/csv", "text/comma-separated-values,text/plain", ".csv")),
 			actionButton("goButton", "Analyse dataset!")
 		)
 		)

@@ -1,48 +1,26 @@
 library(d3heatmap)
 library(gplots)
 library(officer)
-library(VennDiagram)
 library(scales)
-library(xlsx)
 
 options(stringsAsFactors=FALSE)
 
 print_genes=function(v){
-	print(paste0("species=",v$species))
-	print(paste0("sumo=",v$sumo))
+	print(paste0("INFO","print_genes"))
+	data=read.csv(v$file1,header=FALSE)
+	my_tar=data[,1]
+
+	d1=read.csv("C.Search_Space_1.txt",header=FALSE,sep="\t")
+	d1=unique(d1[,2])
+	g_main1=my_tar[my_tar%in%d1]
+	print(paste0(c("shared genes in A1MAIN",length(g_main1))))
+
+	d2=read.csv("A.NIHMS316063-supplement-Table_S4.txt",sep="\t")
+	u_g=unique(c(data[,1],data[,2]))
+	print(u_g)
 	
-	if(v$species=="arabidopsis"){
-		if(v$sumo=="sumo_protein"){
-			x1=c("SUMO1","SUMO2","SUMO3","SUMO4","SUMO5","SUMO6","SUMO7","SUMO8")
-			x2=c("AT4G26840.1","AT5G55160.2","AT5G55170.1","AT5G48700.1","AT2G32765.1","AT5G48710.1","AT5G55855.1","AT5G55856.1")
-			for(x in 1:length(x1)){
-				print(c(x1[x],x2[x]))
-			}
-		}else if(v$sumo=="sumo_e1"){
-			x1=c("SAE1","SAE1b","SAE1b","SAE2")
-			x2=c("AT4G24940.1","AT5G50580","AT5G50680","AT2G21470.2")
-			for(x in 1:length(x1)){
-				print(c(x1[x],x2[x]))
-			}
-		}else if(v$sumo=="sumo_e2"){
-			x1=c("SCE1a")
-			x2=c("AT3G57870")
-			for(x in 1:length(x1)){
-				print(c(x1[x],x2[x]))
-			}
-		}else if(v$sumo=="sumo_e3"){
-			x1=c("SIZ1","NSE2","MMS21")
-			x2=c("AT5G60410","AT3G15150","AT3G15150")
-			for(x in 1:length(x1)){
-				print(c(x1[x],x2[x]))
-			}
-		}else if(v$sumo=="sumo_protease"){
-			x1=c("ULP1a","ULP1b","ESD4","ULP1c","ULP1d","ULP2a","ULP2b")
-			x2=c("AT3G06910","AT4G00690","AT4G15880","AT1G10570","AT1G60220","AT4G33620","AT1G09730")
-			for(x in 1:length(x1)){
-				print(c(x1[x],x2[x]))
-			}
-		}
+	for(x in 1:length(u_g)){
+		print(u_g[x])
 	}
 }
 

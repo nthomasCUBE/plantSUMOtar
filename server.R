@@ -23,6 +23,8 @@ server <- function(input, output, session)
 	observeEvent(input$goButton,{
 		print("goButton")
 		source("methods.R")
+		
+		v$file1=input$file1$datapath
 		print_genes(v)
 	})
 
