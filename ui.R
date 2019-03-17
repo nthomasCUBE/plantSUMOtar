@@ -26,8 +26,14 @@ body, label, input, button, select {
 	sidebarLayout(
 		sidebarPanel(
 		tabsetPanel(id = "tabset",
-		tabPanel("plantSUMOtar - assessing targets of SUMOylation pathway",
+		tabPanel("Analyse",
 			fileInput("file1", "Choose Targets", multiple = TRUE, accept = c("text/csv", "text/comma-separated-values,text/plain", ".csv")),
+			actionButton("goButton", "Analyse dataset!")
+		),
+		tabPanel("Compare",
+			fileInput("file2A", "Annotation-1", multiple = TRUE, accept = c("text/csv", "text/comma-separated-values,text/plain", ".csv")),
+			fileInput("file2B", "Annotation-2", multiple = TRUE, accept = c("text/csv", "text/comma-separated-values,text/plain", ".csv")),
+			fileInput("file2C", "Annotation-3", multiple = TRUE, accept = c("text/csv", "text/comma-separated-values,text/plain", ".csv")),
 			actionButton("goButton", "Analyse dataset!")
 		)
 		)

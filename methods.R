@@ -45,6 +45,6 @@ print_genes=function(v){
 
 	print(wilcox.test(as.integer(df[,2])~df[,1]))
 	p <- ggplot(df, aes(x=category, y=as.integer(nmb_connected_genes))) + geom_boxplot()+ coord_trans(y = "log10")
-	plot(p)
+	return(p)
 }
 

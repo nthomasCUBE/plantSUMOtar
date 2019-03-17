@@ -25,7 +25,10 @@ server <- function(input, output, session)
 		source("methods.R")
 		
 		v$file1=input$file1$datapath
-		print_genes(v)
+		output$plot=renderPlot({
+			my_plot=print_genes(v)
+			print(my_plot)
+		})
 	})
 
 }
