@@ -1,3 +1,7 @@
+#
+# Information was extracted from the following website: http://www.jassa.fr/
+#
+
 seq={}
 fh=open("../Arabidopsis_thaliana.TAIR10.pep.all.fa/Arabidopsis_thaliana.TAIR10.pep.all.fa")
 for line in fh.readlines():
